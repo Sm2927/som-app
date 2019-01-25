@@ -12,9 +12,11 @@
         {% for message in get_flashed_messages() %}
             {{ message }}
         {% endfor %}
-
-        <p>Click <a href="login">here</a> to login.</p>
-
+        {% if 'logged_in' in session %}
+        <p>Click <a href="logout">here</a> to logout.</p>
+        {% else %}
+        <p>Click <a href="logout">here</a> to login.</p>
+        {% endif %}
 
     </div>
 </div>
