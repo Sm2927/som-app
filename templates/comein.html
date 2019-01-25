@@ -6,7 +6,13 @@
     <title>Come in</title>
 </head>
 <body>
+<div class="container">
 <h1> Hi there! Nice to see you!</h1>
-<p>Click <a href="/">here</a> if you don't like it here.</p>
+    {% for message in get_flashed_messages() %}
+            {{ message }}
+        {% endfor %}
+<p>Click <a href="/logout">here</a> to logout.</p>
+
+</div>
 </body>
 </html>
