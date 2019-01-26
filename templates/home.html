@@ -11,14 +11,18 @@
         {% else %}
         <p>Click <a href="logout">here</a> to login.</p>
         {% endif %}
+<br><br>
+<h3>Couses:</h3>
+{% for course in courses %}
+  <strong>Title:</strong> {{ course.title }} <br>
+  <strong>By:</strong> {{ course.description }} <br>
+<br>
+{% endfor %}
 
 {% endblock %}
 
-        {% for message in get_flashed_messages() %}
-            {{ message }}
-        {% endfor %}
-        {% if 'logged_in' in session %}
-        <p>Click <a href="logout">here</a> to logout.</p>
-        {% else %}
-        <p>Click <a href="logout">here</a> to login.</p>
-        {% endif %}
+
+
+
+
+
