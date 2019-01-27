@@ -6,7 +6,7 @@ import sqlite3
 app =  Flask(__name__)
 
 app.secret_key = "sm sm"
-app.database = "sample.db"
+app.database = "som.db"
 
 def reqlog(f):
     @wraps(f)
@@ -21,11 +21,23 @@ def reqlog(f):
 @app.route('/')
 @reqlog
 def home():
-    g.db = connect_db()
-    cur  = g.db.execute('select * from posts')
-    posts = [dict(title=row[0], description=row[1]) for row in cur.fetchall()]
-    g.db.close()
-    return render_template('home.html', posts=posts)
+    courses = []
+    try:
+        g.db = connect_db()
+        cur  = g.db.execute('select * from courses')
+        for row in cur.fetchall():
+              courses.append(dict(title=row[0], prof=row[1]))
+              #print(courses)
+    #cur = g.db.execute('select * from courses')
+    #courses = [dict(title=row[0], prof=row[1]) for row in cur.fetchall()]
+    #print(courses)
+        g.db.close()
+    except sqlite3.OperationalError:
+        flash('Missing the DB!')
+
+
+
+    return render_template('home.html', courses=courses)
 
 @app.route('/comein')
 def comein():
