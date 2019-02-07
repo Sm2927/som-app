@@ -2,3 +2,7 @@ https://docs.python.org/2/library/unittest.html#command-line-interface
 https://www.youtube.com/watch?v=1aHNs1aEATg
 https://github.com/Sm2927/discover-flask
 https://www.youtube.com/watch?v=6tNS--WetLI 
+
+
+
+//spam detection -- https://www.youtube.com/watch?v=xm-wmBwJLww
